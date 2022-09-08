@@ -1,0 +1,42 @@
+<h1>Список объектов</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Func</th>
+        </tr>
+    </thead>
+    <tbody>
+    {{#each object_builds}}
+
+        <!--<p>{{id}}.{{name}}({{address}})</p>
+    <a href="/editObject/{{id}}">Edit</a>|
+    <form action="delete/{{id}}" method="POST" style="display:inline;">
+        <input type="submit" value="Delete" />
+    </form>-->
+        <tr>
+            <td>{{id}}</td>
+            <td>{{name}}</td>
+            <td>{{address}}</td>
+            <td>
+                <a href="/editObject/{{id}}">Edit</a>|
+                <form action="delete/{{id}}" method="POST" style="display:inline;">
+                    <input type="submit" value="Delete" />
+                </form>
+            </td>
+        </tr>
+
+    {{/each}}
+    </tbody>
+</table>
+
+<form action="/edit_object_build" method="POST">
+    <input type="hidden" name="id" value="{{id}}" />
+    <label>Имя</label><br>
+    <input name="name" value="{{name}}"  class="field" /><br><br>
+    <label>Адрес</label><br>
+    <input name="address" type="text" value="{{address}}" class="field" /><br><br>
+    <input type="submit" value="Отправить" />
+</form>

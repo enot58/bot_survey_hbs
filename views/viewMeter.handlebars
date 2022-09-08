@@ -1,0 +1,32 @@
+<h1>Список счётчиков</h1>
+<p><a href="/">Вернуться к списку квартир</a></p>
+<table class="table">
+    <thead>
+    <th scope="col">#</th>
+    <th scope="col">Номер счётчика</th>
+    <th scope="col">Показания</th>
+    <th scope="col">Id Пользователя</th>
+    <th scope="col">Тип счётчика</th>
+    
+    </thead>
+    <tbody>
+
+    {{#each meters}}
+        <tr>
+            <th scope="row">{{id}}</th>
+            <td>{{number}}</td>
+            <td>{{numM3}}</td>
+            <td>{{userId}}</td>
+            <td>{{typeMeterId}}</td>
+            <td>{{createdAt}}</td>
+            <td>{{updatedAt}}</td>
+            <td>
+                <a href="/edit/{{id}}">Редактировать</a>|
+                <form action="deleteMeter/{{id}}" method="POST" style="display:inline;">
+                    <input type="submit" value="Удалить" />
+                </form>
+            </td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>

@@ -1,0 +1,66 @@
+<h1>Список квартир и счётчиков</h1>
+<!--
+<p><a href="/create">Добавить пользователя</a></p>
+<p><a href="/createtable">Создание таблицы</a></p>
+<p><a href="/addObject">Добавить объект</a></p>
+-->
+<p><a href="/viewMeter">Список счётчиков</a></p>
+
+<table class="table">
+    <thead>
+    <th scope="col">#</th>
+    <th scope="col">№ Квартиры</th>
+    <th scope="col">Тип счётчика</th>
+    <th scope="col">Номер</th>
+    <th scope="col">Показания</th>
+    <th scope="col">Перенос</th>
+    <th scope="col">Добавлен</th>
+    <th scope="col">Обновлён</th>
+    </thead>
+    <tbody>
+
+    {{#each users}}
+        <tr>
+            <th scope="row">{{id}}</th>
+            <td>{{numberFlat}}</td>
+            <td>{{typeMeter}}</td>
+            <td>{{numberMeter}}</td>
+            <td>{{numberM3}}</td>
+            <td>{{answer}}</td>
+            <td>{{createMeter}}</td>
+            <td>{{updateMeter}}</td>
+            <td>
+                <a href="/edit/{{id}}">Редактировать</a>|
+                <form action="delete/{{id}}" method="POST" style="display:inline;">
+                    <input type="submit" value="Удалить" />
+                </form>
+            </td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
+
+<!--<table>
+    <tr><th>id</th><th>id Telegram</th><th>name</th><th>numberFlat</th><th>questionOne</th><th>objectBuildId</th><th>createdAt</th><th>updatedAt</th><th>object_build.name</th></tr>
+    {{#each users}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{idFrom}}</td>
+            <td>{{name}}</td>
+            <td>{{numberFlat}}</td>
+            <td>{{questionOne}}</td>
+            <td>{{objectBuildId}}</td>
+            <td>{{createdAt}}</td>
+            <td>{{updatedAt}}</td>
+            {{#each name}}
+                <td>{{id}}</td>
+            {{/each}}
+            <td>
+                <a href="/edit/{{id}}">Редактировать</a>|
+                <form action="delete/{{id}}" method="POST" style="display:inline;">
+                    <input type="submit" value="Удалить" />
+                </form>
+            </td>
+        </tr>
+    {{/each}}
+</table>-->

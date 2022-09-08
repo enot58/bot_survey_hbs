@@ -1,0 +1,62 @@
+<h1>
+    Добавим данные
+</h1>
+<!--<form action="/addInfo">-->
+    <label for="stoyak">
+        Укажитите количество стояков
+        <input class="numberSt" type="number">
+    </label>
+    <label for="level">
+        Укажите количество этажей
+        <input class = numberLevel type="number">
+    </label>
+    <button class="createTable">Сформировать</button>
+<!--</form>-->
+<script>
+    let numberSt = document.querySelector('.numberSt');
+    let numberStVal = Number(numberSt.value)
+    let numberLevel = document.querySelector('.numberLevel');
+    let numberLevelVal = Number(numberLevel.value);
+    let createTableButton = document.querySelector('.createTable');
+
+    function tableCreate(){
+        let body = document.body,
+                tbl  = document.createElement('table');
+        tbl.style.minWidth  = '100px';
+        tbl.style.border = '1px solid black';
+        /**
+        for(let i = 0; i < numberLevelVal; i++){
+            let tr = tbl.insertRow();
+            for(let j = 0; j < numberStVal; j++){
+                if(i == 2 && j == 1){
+                    break;
+                } else {
+                    let td = tr.insertCell();
+                    td.appendChild(document.createTextNode('Cell'));
+                    td.style.border = '1px solid black';
+                    if(i == 1 && j == 1){
+                        td.setAttribute('rowSpan', '2');
+                    }
+                }
+            }
+        }
+         **/
+        for (let i = 0; i < numberStVal; i++) {
+            let tr = tbl.insertRow();
+            tr.style.width = '30px';
+            tr.style.border = '1px solid black'
+            for (let j = 0; j < numberLevelVal ; j++) {
+                let td = tr.insertCell();
+                td.style.border = '1px solid black';
+                td.style.minWidth = '30px'
+                td.style.height = '30px'
+            }
+        }
+        body.appendChild(tbl);
+    }
+    createTableButton.addEventListener('click',tableCreate);
+
+
+
+
+</script>
